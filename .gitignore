@@ -1,0 +1,4 @@
+__pycache__/*
+.vagrant/*
+*.pyc
+*.sqlite3
