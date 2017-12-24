@@ -1,0 +1,4 @@
+boto3==1.5.2
+celery==4.1.0
+Django==2.0
+pycurl==7.43.0.1

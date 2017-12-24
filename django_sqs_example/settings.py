@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'demoapp'
 ]
 
 MIDDLEWARE = [
@@ -119,10 +121,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Celery Config
-BROKER_URL = "sqs://aws_access_key_id:aws_secret_access_key@"
-# CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+# Celery
+BROKER_URL = "sqs://"
+
+CELERY_RESULT_BACKEND = None
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
+
+
+BROKER_TRANSPORT_OPTIONS = {
+    'region': 'us-west-2',
+    'polling_interval': 20,
+}
+
+CELERY_DEFAULT_QUEUE = 'django_sqs_example'
